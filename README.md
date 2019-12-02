@@ -18,7 +18,8 @@ SeNet在ImageNet上的预训练模型：http://data.lip6.fr/cadene/pretrainedmod
 修改其中torchreid.data.datamanager.py下的MyDataset类的`self.train_dir`，`self.val_query_dir`，`self.val_gallery_dir`，`self.query_dir`，`self.gallery_dir`为对应训练集，验证集query，gallery和测试集query，gallery目录。
 
 ## 2.一次完整的训练和测试
-修改`MyDataset.py`中的`save_dir`为模型保存地址，`torchreid.data.datamanager.MyDataManager`中的`root`参数为数据集所在大目录(如os.path.join( `root`, `self.train_dir`)即为训练集完整目录)。然后运行`MyDataset.py`，即
+修改`MyDataset.py`中的`save_dir`为模型保存地址，`torchreid.data.datamanager.MyDataManager`中的`root`参数为数据集所在大目录(如`os.path.join( root, self.train_dir)`即为训练集完整目录)。然后运行`MyDataset.py`，即
+
 `python3 MyDataset.py`
 
 
@@ -30,6 +31,7 @@ https://pan.baidu.com/s/1ut4ZguCexG2YJSsjsVaxQQ
 ## 2.多模型集成测试
 切换到多模型集成测试目录：`cd ../test_jicheng`
 类似地修改torchreid.data.datamanager.py下的MyDataset类的下的相关路径，然后修改`jicheng.py`下的`save_dir`为json文件保存地址，`torchreid.data.datamanager.MyDataManager`中的`root`参数为数据集所在大目录以及`fpath_1`~`fpath6`为训练好的6个模型所在目录，然后运行jicheng.py即可进行测试：
+
 `python3 jicheng.py`
 
 生成的json文件保存在`save_dir`下，我们生成的结果放在下面百度云中：
