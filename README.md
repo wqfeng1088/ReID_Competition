@@ -26,7 +26,7 @@ SeNet在ImageNet上的预训练模型：http://data.lip6.fr/cadene/pretrainedmod
 我们共训练6次模型，即执行上述操作六次。我们训练好的模型放在百度云中，链接为：
 https://pan.baidu.com/s/1ut4ZguCexG2YJSsjsVaxQQ
 
-如果需要执行聚类，只需要修改数据集目录，然后执行：`python3 kmeans.py`或`python3 cluster.py`进行KMeans聚类和MNNPL聚类。
+（可选）如果需要执行聚类，只需要修改数据集目录，然后执行：`python3 kmeans.py`或`python3 cluster.py`进行KMeans聚类和MNNPL聚类。
 
 ## 2.多模型集成测试
 切换到多模型集成测试目录：`cd ../test_jicheng`
