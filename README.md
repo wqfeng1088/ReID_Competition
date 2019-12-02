@@ -15,7 +15,7 @@ SeNet在ImageNet上的预训练模型：http://data.lip6.fr/cadene/pretrainedmod
 切换到下面目录：
 `cd ReID/train_and_test`
 
-修改其中torchreid.data.datamanager.py下的MyDataset类的`self.train_dir``self.val_query_dir``self.val_gallery_dir``self.query_dir``self.gallery_dir`为对应训练集，验证集query，gallery和测试集query，gallery目录。
+修改其中torchreid.data.datamanager.py下的MyDataset类的`self.train_dir`，`self.val_query_dir`，`self.val_gallery_dir`，`self.query_dir`，`self.gallery_dir`为对应训练集，验证集query，gallery和测试集query，gallery目录。
 
 ## 2.一次完整的训练和测试
 修改`MyDataset.py`中的`save_dir`为模型保存地址，`torchreid.data.datamanager.MyDataManager`中的`root`参数为数据集所在大目录(如os.path.join( `root`, `self.train_dir`)即为训练集完整目录)。然后运行`MyDataset.py`，即
@@ -24,6 +24,8 @@ SeNet在ImageNet上的预训练模型：http://data.lip6.fr/cadene/pretrainedmod
 
 我们共训练6次模型，即执行上述操作六次。我们训练好的模型放在百度云中，链接为：
 https://pan.baidu.com/s/1ut4ZguCexG2YJSsjsVaxQQ
+
+如果需要执行聚类，只需要修改数据集目录，然后执行：`python3 kmeans.py`或`python3 cluster.py`进行KMeans聚类和MNNPL聚类。
 
 ## 2.多模型集成测试
 切换到多模型集成测试目录：`cd ../test_jicheng`
