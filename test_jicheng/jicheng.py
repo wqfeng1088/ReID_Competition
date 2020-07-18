@@ -54,7 +54,7 @@ def main():
 
 
     #-------------load-------------------
-    #'/project/ywchong/ywchong/CODE/zc/AIC/code/log/best/' 
+    #'/project/CODE/AIC/code/log/best/' 
     model_1 = copy.deepcopy(model)
     model_2 = copy.deepcopy(model)
     model_3 = copy.deepcopy(model)
@@ -62,22 +62,22 @@ def main():
     model_5 = copy.deepcopy(model) 
     model_6 = copy.deepcopy(model) 
       
-    fpath_1 = "/project/CODE/onej/code3_1/log/best1/model.pth.tar-150"
+    fpath_1 = "/project/CODE/code3_1/log/best1/model.pth.tar-150"
     torchreid.utils.torchtools.load_pretrained_weights(model_1, fpath_1)
 
-    fpath_2 = "/project/CODE/onej/code3_2/log/best2/model.pth.tar-150"
+    fpath_2 = "/project/CODE/code3_2/log/best2/model.pth.tar-150"
     torchreid.utils.torchtools.load_pretrained_weights(model_2, fpath_2)
     
-    fpath_3 = "/project/CODE/onej/code3_3/log/best3/model.pth.tar-150"
+    fpath_3 = "/project/CODE/code3_3/log/best3/model.pth.tar-150"
     torchreid.utils.torchtools.load_pretrained_weights(model_3, fpath_3)
 
-    fpath_4 = "/project/CODE/onej/code3_4/log/best4/model.pth.tar-150"
+    fpath_4 = "/project/CODE/code3_4/log/best4/model.pth.tar-150"
     torchreid.utils.torchtools.load_pretrained_weights(model_4, fpath_4)
 
-    fpath_5 = "/project/CODE/onej/code3_5/log/best5/model.pth.tar-150"
+    fpath_5 = "/project/CODE/code3_5/log/best5/model.pth.tar-150"
     torchreid.utils.torchtools.load_pretrained_weights(model_5, fpath_5)
     
-    fpath_6 = "/project/CODE/onej/code3_6/log/best6/model.pth.tar-150"
+    fpath_6 = "/project/CODE/code3_6/log/best6/model.pth.tar-150"
     torchreid.utils.torchtools.load_pretrained_weights(model_6, fpath_6)
 
 
@@ -106,9 +106,6 @@ def main():
         test_only=True,
         label_smooth_end_epoch=120
     )
-
-    #with open('./log/baseline2/retrieve_result.json','rb') as f,open('../fwq/My Drive/Colab/Game_code/experiment/storage/retrieve_result.json',"wb") as fw:
-        #fw.write(f.read())
 
 
 
