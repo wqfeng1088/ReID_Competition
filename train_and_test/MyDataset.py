@@ -56,7 +56,7 @@ def main():
     )
 
     # load pre-trained model
-    #fpath = "/project/CODE/onej/code3_6/log/best6"
+    #fpath = "/project/CODE/code3_6/log/best6"
     # torchreid.utils.torchtools.resume_from_checkpoint(fpath, model, optimizer)
     #torchreid.utils.torchtools.load_pretrained_weights(model, fpath)
 
