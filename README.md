@@ -1,8 +1,8 @@
 # ReID
  
-该项目是“武大锅盔队”在首届全国人工智能大赛（行人重试别赛道）初赛A轮和B轮使用的全部代码，用于审核组指导老师审查，万分感谢。
+该项目是“新用户的团队”在首届全国人工智能大赛（行人重试别赛道）初赛A轮和B轮使用的全部代码，用于审核组指导老师审查，万分感谢。
 
-比赛链接：https://www.kesci.com/home/competition/5d90401cd8fc4f002da8e7be
+KLab项目链接：https://www.kesci.com/home/project/share/44a983872814a643
 
 ## 解题思路
 我们使用罗浩等人在CVPR019发布的 《Bag of Tricks and a Strong Baseline for Deep Person Re-Identification 》作为我们的基础模型（以下简称reid strong baseline），同时，我们将ResNet50 《Deep Residual Learning for Image Recognition》的backbone换成了se_resnext101 《Squeeze-and-Excitation Networks》，并使用其在ImageNet图像分类挑战赛数据集上的预训练模型来获得进一步的性能提升。除了backbone之外，reid strong baseline中还包含了6个在reid社区中经常使用的tricks，我们也延续这些tricks的使用，分别是：
