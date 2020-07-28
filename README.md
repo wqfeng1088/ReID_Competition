@@ -46,15 +46,13 @@ CPU：Intel Xeon E5-2630 v3
 
 ## 项目介绍
 
-项目使用的预训练模型是在ImageNet2017图像分类比赛数据集上训练的se_resnext101_32x4d模型，模型所在地址为：预训练模型
-首先使用cd命令修改到train_and_test目录下
+项目使用的预训练模型是在ImageNet2017图像分类比赛数据集上训练的se_resnext101_32x4d模型，模型所在地址为：http://data.lip6.fr/cadene/pretrainedmodels/se_resnext101_32x4d-3b2fe3d8.pth
 
 ### 数据集准备
 
 根据官网发布的训练集，我们先在原始训练集中随机抽取500个ID作为本地验证集，其中每个ID选择一张图像作为验证集的query，剩余图像作为验证集的gallery。然后将剩余训练集中图像数少于3张的图像直接放到验证集gallery中作为干扰者，并将验证集中(含query和gallery)中图像数多余(含等于)3张图像的类别拷贝回训练集中作为最终训练集。对于以上数据，全部利用官网提供的txt文件进行重命名，格式为“0005_197997937.png”，其中0005是类别ID，197997937.png是原始图像名，而测试集不动。
 
 其中torchreid.data.datamanager.py下的MyDataset类的`self.train_dir`，`self.val_query_dir`，`self.val_gallery_dir`，`self.query_dir`，`self.gallery_dir`为对应训练集，验证集query，gallery和测试集query，gallery目录。
-
 
 
 然后将compute_mean_std.py中的train_path，test_query_path和test_gallery_path分别修改为训练集，测试集query和测试集gallery所在目录，并执行文件即可得到数据集的均值和方差。 运行程序示例：
