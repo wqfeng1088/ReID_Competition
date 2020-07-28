@@ -1,6 +1,7 @@
 # ReID
  
 该项目是“武大锅盔队”在首届全国人工智能大赛（行人重试别赛道）初赛A轮和B轮使用的全部代码，用于审核组指导老师审查，万分感谢。
+
 比赛链接：https://www.kesci.com/home/competition/5d90401cd8fc4f002da8e7be
 
 ## 解题思路
@@ -57,17 +58,17 @@ CPU：Intel Xeon E5-2630 v3
 
 然后将compute_mean_std.py中的train_path，test_query_path和test_gallery_path分别修改为训练集，测试集query和测试集gallery所在目录，并执行文件即可得到数据集的均值和方差。 运行程序示例：
 
-python3 compute_mean_std.py
+`python3 compute_mean_std.py`
 
 最终计算得到的数据集均值和方差分别为：
 
-[0.09721232, 0.18305508, 0.21273703]和[0.17512791, 0.16554857, 0.22157137]。
+`[0.09721232, 0.18305508, 0.21273703]和[0.17512791, 0.16554857, 0.22157137]`
 
 ### 模型训练
 
 将MyDataset.py文件下的第15行中的save_dir修改为需要保存模型等输出文件的路径，第21行MyDataManager函数参数root修改数据所在路径。其他参数使用文件中的默认参数即可， 然后运行该文件即可开始训练模型。最后，我们额外训练该模型5次，保存在不同路径下。 运行程序示例：
 
-python3 MyDataset.py
+`python3 MyDataset.py`
 
 我们已经训练好的6个模型的百度云盘地址为： https://pan.baidu.com/s/1ut4ZguCexG2YJSsjsVaxQQ
 
@@ -75,7 +76,7 @@ python3 MyDataset.py
 ### 聚类（可选）
 将kmeans.py文件中save_dir修改为需要保存模型等输出文件的路径，MyDataManager函数的root参数修改为数据所在路径，fpath修改为在原训练集上训练得到的模型文件地址，KMeans函数中的n_clusters参数修改为需要聚类的类数，output_dir修改为聚类之后的图片保存地址，test_data_path修改为测试集B的query和gallery两者合并之后的文件路径，其余参数默认即可，然后执行该文件。 运行程序示例：
 
-python3 kmeans.py
+`python3 kmeans.py`
 
 我们上传的代码支持在“ 扩展(可选)”部分提到的所有内容，由于提交时间限制，这里就不一一展开，均是类似的操作。简要说明如下：如果需要执行fine-tuning，则调用 MyDataManager_FineTune 类而不是 MyDataManager，并在对应的类内修改数据的路径并加载原训练模型即可；如果需要执行我们提出的基于K互近邻聚类算法，运行 cluster.py 文件并修改其中相应路径即可。
 
@@ -87,7 +88,7 @@ python3 kmeans.py
 
 修改 jicheng.py 中的fpath1到fpath6为6个在原训练集上训练好的模型路径，save_dir为要保存输出结果的路径。 运行示例代码：
 
-python3 jicheng.py
+`python3 jicheng.py`
 
 在save_dir下会输出日志文件和生成的预测json文件，其中json文件即为最终提交结果。 我们提交的json文件结果的链接为：https://pan.baidu.com/s/1ut4ZguCexG2YJSsjsVaxQQ
 
