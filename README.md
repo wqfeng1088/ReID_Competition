@@ -4,12 +4,12 @@
 
 ## 解题思路
 我们使用罗浩等人在CVPR019发布的 《Bag of Tricks and a Strong Baseline for Deep Person Re-Identification 》作为我们的基础模型（以下简称reid strong baseline），同时，我们将ResNet50 《Deep Residual Learning for Image Recognition》的backbone换成了se_resnext101 《Squeeze-and-Excitation Networks》，并使用其在ImageNet图像分类挑战赛数据集上的预训练模型来获得进一步的性能提升。除了backbone之外，reid strong baseline中还包含了6个在reid社区中经常使用的tricks，我们也延续这些tricks的使用，分别是：
-Warm Up
-BNNeck
-Label Smooth
-Last Stride
-Random Erasing
-Center Loss
+1.Warm Up
+2.BNNeck
+3.Label Smooth
+4.Last Stride
+5.Random Erasing
+6.Center Loss
 
 其中，warm up指的是在前10个epoch，学习率从线性增加到，然后在第30个epoch和第120个epoch时分别衰减10倍，最终在第150个epoch时训练结束；BNNeck是指在backbone的layer4输出后经过GAP（global average pool），得到的feature map，然后经过reshape得到全局特征，我们基于该特征计算triplet loss 《FaceNet: A Unifed Embedding for Face Recognition and Clustering》和center loss 《 A Discriminative Feature Learning Approach for Deep Face Recognition》，之后这个特征依次经过batch norm 《Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift》层和分类层，得到预测的分类概率进行softmax loss计算。Label Smooth是对原图像进行标签平滑的操作。
 
