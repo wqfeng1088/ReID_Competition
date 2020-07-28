@@ -4,6 +4,7 @@
 
 您可以在我们的KLab项目中获取项目的更详细的介绍，这里我们只简单介绍项目的训练和测试流程。
 
+KLab项目链接：https://www.kesci.com/home/project/share/44a983872814a643
 
 ## 1.项目下载和数据集路径准备
 SeNet在ImageNet上的预训练模型：http://data.lip6.fr/cadene/pretrainedmodels/se_resnext101_32x4d-3b2fe3d8.pth
