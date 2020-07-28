@@ -1,21 +1,22 @@
 # ReID
  
 该项目是“武大锅盔队”在首届全国人工智能大赛（行人重试别赛道）初赛A轮和B轮使用的全部代码，用于审核组指导老师审查，万分感谢。
+比赛链接：https://www.kesci.com/home/competition/5d90401cd8fc4f002da8e7be
 
 ## 解题思路
 我们使用罗浩等人在CVPR019发布的 《Bag of Tricks and a Strong Baseline for Deep Person Re-Identification 》作为我们的基础模型（以下简称reid strong baseline），同时，我们将ResNet50 《Deep Residual Learning for Image Recognition》的backbone换成了se_resnext101 《Squeeze-and-Excitation Networks》，并使用其在ImageNet图像分类挑战赛数据集上的预训练模型来获得进一步的性能提升。除了backbone之外，reid strong baseline中还包含了6个在reid社区中经常使用的tricks，我们也延续这些tricks的使用，分别是：
 
-1.Warm Up
+Warm Up
 
-2.BNNeck
+BNNeck
 
-3.Label Smooth
+Label Smooth
 
-4.Last Stride
+Last Stride
 
-5.Random Erasing
+Random Erasing
 
-6.Center Loss
+Center Loss
 
 
 其中，warm up指的是在前10个epoch，学习率从线性增加到，然后在第30个epoch和第120个epoch时分别衰减10倍，最终在第150个epoch时训练结束；BNNeck是指在backbone的layer4输出后经过GAP（global average pool），得到的feature map，然后经过reshape得到全局特征，我们基于该特征计算triplet loss 《FaceNet: A Unifed Embedding for Face Recognition and Clustering》和center loss 《 A Discriminative Feature Learning Approach for Deep Face Recognition》，之后这个特征依次经过batch norm 《Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift》层和分类层，得到预测的分类概率进行softmax loss计算。Label Smooth是对原图像进行标签平滑的操作。
@@ -79,7 +80,9 @@ python3 MyDataset.py
 python3 kmeans.py
 
 我们上传的代码支持在“ 扩展(可选)”部分提到的所有内容，由于提交时间限制，这里就不一一展开，均是类似的操作。简要说明如下：如果需要执行fine-tuning，则调用 MyDataManager_FineTune 类而不是 MyDataManager，并在对应的类内修改数据的路径并加载原训练模型即可；如果需要执行我们提出的基于K互近邻聚类算法，运行 cluster.py 文件并修改其中相应路径即可。
+
 对于聚类结果，在时间运行的情况下，我们可以进行人工筛选。对于在测试集B上的聚类结果，我们考虑可以进行两种用途，要么与原始训练集合并，重头开始对模型训练，要么在原训练模型的基础上进行fine-tuning。
+
 然后利用cd命令切换到test_jicheng目录下
 
 ### 测试
