@@ -14,9 +14,6 @@ Center Loss
 
 其中，warm up指的是在前10个epoch，学习率从线性增加到，然后在第30个epoch和第120个epoch时分别衰减10倍，最终在第150个epoch时训练结束；BNNeck是指在backbone的layer4输出后经过GAP（global average pool），得到的feature map，然后经过reshape得到全局特征，我们基于该特征计算triplet loss [ FaceNet: A Unifed Embedding for Face Recognition and Clustering ]和center loss [ A Discriminative Feature Learning Approach for Deep Face Recognition ]，之后这个特征依次经过batch norm [ Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift ]层和分类层，得到预测的分类概率进行softmax loss计算。Label Smooth是对原图像进行标签平滑的操作，即将原始数据集上标注的one-hot形式标签修改为下面的形式：
 
-![pic1](‪C:\Users\Feng\Desktop\1.png)
-
-
 
 
 ## 1.项目下载和数据集路径准备
