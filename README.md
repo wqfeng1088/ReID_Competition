@@ -25,7 +25,7 @@ Center Loss
 ### 参数设置
 我们的模型使用softmax loss和triplet loss联调，两者的损失权重均设置为1。而center loss的量级较大，为尽量保持损失在同一量级，我们将center loss的权重设置为0.0005，而rank loss的权重设置为2，于是总体损失为：
 
-Loss = λ1 * Lid + λ2 * Ltri + λ3 * Lrank + λ4 * Lcenter
+`Loss = λ1 * Lid + λ2 * Ltri + λ3 * Lrank + λ4 * Lcenter`
 
 其中λ1=λ2=1,λ3=2,λ4=0.0005 而center loss使用单独的优化器进行优化，这一部分用到的所有参数设置均和罗浩等人的reid-strong-baseline保持一致。我们使用的代码是在KaiyangZhou的基础上修改的，并使用到了0.5概率的随机水平镜像，随机裁剪(先将图像放大，然后裁剪到 )以及概率为0.5的随机擦除作为数据增强。我们的初始学习率是，然后在前10个epochs线性增加到，随后保持不变，并在第30个epoch和第120个epoch时分别衰减10倍，直到第150个epoch时模型收敛，训练结束。我们同时训练6个相同的模型。
 
@@ -34,9 +34,9 @@ Loss = λ1 * Lid + λ2 * Ltri + λ3 * Lrank + λ4 * Lcenter
 
 ### 运行环境
 
-Python3.6: conda create -n py36 python=3.6 anaconda
+Python3.6: `conda create -n py36 python=3.6 anaconda`
 
-pytorch：pip install torch==1.1.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+pytorch：`pip install torch==1.1.0 -i https://pypi.tuna.tsinghua.edu.cn/simple`
 
 ### 计算力
 
